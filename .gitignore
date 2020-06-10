@@ -4,4 +4,4 @@ pyvenv.cfg
 __pycache__/
 *.py[cod]
 *$py.class
-db.*
+db.sqlite3
