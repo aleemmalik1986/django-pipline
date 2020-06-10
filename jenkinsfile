@@ -1,0 +1,12 @@
+pipeline{
+    agent any
+    stages{
+        stage("welcome"){
+            steps{
+                echo "Welcome to jenkins delerative pipline by aleem"
+            }
+            
+        }
+    }
+    
+}
