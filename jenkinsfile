@@ -1,6 +1,4 @@
 pipeline{
-    properties([parameters([string(defaultValue: '', description: '', name: 'gittag', trim: true), string(defaultValue: '', description: '', name: 'gitbranch', trim: true)])])
-
     agent any
     stages{
         stage("Git Checkout"){
