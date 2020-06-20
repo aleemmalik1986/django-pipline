@@ -1,10 +1,14 @@
 pipeline{
+    properties([parameters([string(defaultValue: '', description: '', name: 'gittag', trim: true), string(defaultValue: '', description: '', name: 'gitbranch', trim: true)])])
+
     agent any
     stages{
         stage("Git Checkout"){
             steps{
                 echo "Welcome to jenkins delerative pipline by aleem checking out git"
-                git credentialsId: '5c8bb3c6-bb91-44aa-8e1d-b4e16f49a6d2', url: 'https://github.com/aleemmalik1986/django-pipline'
+                // git credentialsId: '5c8bb3c6-bb91-44aa-8e1d-b4e16f49a6d2', url: 'https://github.com/aleemmalik1986/django-pipline'
+                echo "${params.gittag}"
+                echo "${params.gitbranch}"
                 echo "Git checkout finished"
             }
 
