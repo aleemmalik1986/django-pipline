@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage("Git Checkout"){
+        stage("Git Checkoutt"){
             steps{
                 echo "Welcome to jenkins delerative pipline by aleem checking out git"
                 // git credentialsId: '5c8bb3c6-bb91-44aa-8e1d-b4e16f49a6d2', url: 'https://github.com/aleemmalik1986/django-pipline'
