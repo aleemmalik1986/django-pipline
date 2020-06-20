@@ -7,6 +7,13 @@ pipeline{
                 git credentialsId: '5c8bb3c6-bb91-44aa-8e1d-b4e16f49a6d2', url: 'https://github.com/aleemmalik1986/django-pipline'
                 echo "Git checkout finished"
             }
+
+        stage("Build django"){
+            steps{
+                echo "Now building django project"
+
+            }
+        }
             
         }
     }
