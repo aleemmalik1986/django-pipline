@@ -1,6 +1,6 @@
-pipeline{
+pipeline {
     agent any
-    stages{
+    stages {
         stage ("Git Checkoutt") {
             steps {
                 echo "Welcome to jenkins delerative pipline by aleem checking out git"
