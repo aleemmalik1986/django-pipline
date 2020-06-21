@@ -33,7 +33,7 @@ pipeline {
         stage ("build artifacts zipfile") {
             steps{
                 echo "${pipelineName}"
-                sh "echo $jenkinsWorkspacePath $pipelineName"
+                sh "echo $jenkinsWorkspacePath$pipelineName"
 
             }
         }
