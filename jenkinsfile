@@ -36,6 +36,7 @@ pipeline {
                 sh "echo $jenkinsWorkspacePath$pipelineName"
                 sh "cd $jenkinsWorkspacePath$pipelineName"
                 sh "pwd"
+                sh "whoami"
                 // sh "tar czvf artifacts.tar.gz ."
 
             }
