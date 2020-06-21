@@ -1,4 +1,5 @@
 pipeline {
+    def checkouttag = 'refs/tags/'
     agent any
     stages {
         stage ("Git Checkoutt") {
@@ -6,7 +7,7 @@ pipeline {
                 echo "Welcome to jenkins delerative pipline by aleem checking out git"
                 echo "${params.gittag}"
                 echo "${params.gitbranch}"
-                def checkouttag = 'refs/tags/'
+                
                 echo "$checkouttag+${params.gittag}"
                 checkout ([
                 $class: 'GitSCM',
