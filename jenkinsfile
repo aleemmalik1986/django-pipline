@@ -36,7 +36,7 @@ pipeline {
                 sh "echo $jenkinsWorkspacePath$pipelineName"
                 sh "cd $jenkinsWorkspacePath$pipelineName"
                 sh "pwd"
-                sh "tar czvf artifacts.tar.gz ."
+                // sh "tar czvf artifacts.tar.gz ."
 
             }
         }
