@@ -6,8 +6,8 @@ pipeline {
                 echo "Welcome to jenkins delerative pipline by aleem checking out git"
                 echo "${params.gittag}"
                 echo "${params.gitbranch}"
-                def checkouttag = 'refs/tags/'+ ${params.gittag}
-                echo "$checkouttag"
+                def checkouttag = 'refs/tags/'
+                echo "$checkouttag+${params.gittag}"
                 checkout ([
                 $class: 'GitSCM',
                     branches: [[name: 'refs/tags/1.0.3']],
