@@ -21,7 +21,7 @@ pipeline {
                 echo "refs/tags/${params.gittag}"
                 checkout ([
                 $class: 'GitSCM',
-                    branches: [[name: 'refs/tags/'${params.gittag}]],
+                    branches: [[name: 'refs/tags/1.0.3']],
                     extensions: [[$class: 'CloneOption', shallow: false, depth: 0, reference: '']],
                     userRemoteConfigs: scm.userRemoteConfigs,
                 ])
