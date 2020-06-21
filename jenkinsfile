@@ -7,8 +7,15 @@ pipeline {
                 echo "${params.gittag}"
                 echo "${params.gitbranch}"
 
-                checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'git@github.com:aleemmalik1986/django-pipline.git', 
-                    credentialsId: '608df181-d302-4e65-912d-b56b5df81655']], branches: [[name: ${params.gittag}]]],poll: false
+                checkout ([
+                $class: 'GitSCM',
+                    branches: [[name: 'refs/tags/${params.gittag}']],
+                    extensions: [[$class: 'CloneOption', shallow: false, depth: 0, reference: '']],
+                    userRemoteConfigs: scm.userRemoteConfigs,
+                ])
+
+                // checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'git@github.com:aleemmalik1986/django-pipline.git', 
+                //     credentialsId: '608df181-d302-4e65-912d-b56b5df81655']], branches: [[name: ${params.gittag}]]],poll: false
 
                 // checkout([$class: 'GitSCM', branches: [[name: ${params.gittag}]],
                 //     userRemoteConfigs: [[url: 'git@github.com:aleemmalik1986/django-pipline.git',
