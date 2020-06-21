@@ -1,3 +1,5 @@
+def pipelineName = env.JOB_BASE_NAME
+
 pipeline {
 
     environment {
@@ -10,7 +12,7 @@ pipeline {
         string(name: 'gittag', defaultValue: '1.0.1', description: 'enter branch tag to build')
     }
 
-    def pipelineName = env.JOB_BASE_NAME
+    
     stages {
         stage ("Git Checkoutt") {
             steps {
