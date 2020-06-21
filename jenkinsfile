@@ -30,14 +30,13 @@ pipeline {
             }
             
         }
-        stage ("build repo tar.gz file for docker") {
+        stage ("build repo artifact.zip file for docker") {
             steps{
                 echo "${pipelineName}"
                 sh "echo $jenkinsWorkspacePath$pipelineName"
                 sh "cd $jenkinsWorkspacePath$pipelineName"
                 sh "pwd"
-                sh "whoami"
-                // sh "tar czvf artifacts.tar.gz ."
+                sh "zip -r artifact.zip ."
 
             }
         }
