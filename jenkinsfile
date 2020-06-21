@@ -1,14 +1,18 @@
 pipeline {
-    def checkouttag = 'refs/tags/'
+
     agent any
+    parameters {
+        string(name: 'tagref', defaultValue: 'refs/tags/', description: 'store tag ref')
+    }
     stages {
         stage ("Git Checkoutt") {
             steps {
                 echo "Welcome to jenkins delerative pipline by aleem checking out git"
                 echo "${params.gittag}"
                 echo "${params.gitbranch}"
+                echo "${params.tagref}"
                 
-                echo "$checkouttag+${params.gittag}"
+                echo "${params.tagref}+${params.gittag}"
                 checkout ([
                 $class: 'GitSCM',
                     branches: [[name: 'refs/tags/1.0.3']],
