@@ -13,6 +13,10 @@ pipeline {
                 echo "${params.gittag}"
                 echo "${params.gitbranch}"
                 // echo "${params.tagref}"
+
+                tagvar = 'refs/tags/'+${params.gittag}
+
+                echo "$tagvar"
                 
                 echo "refs/tags/${params.gittag}"
                 checkout ([
