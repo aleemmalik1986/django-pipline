@@ -4,15 +4,12 @@ pipeline {
     parameters {
         // string(name: 'tagref', defaultValue: 'refs/tags/', description: 'store tag ref')
         string(name: 'gittag', defaultValue: 'refs/tags/', description: 'store tag ref')
-        string(name: 'gitbranch', defaultValue: 'refs/tags/', description: 'store tag ref')
     }
     stages {
         stage ("Git Checkoutt") {
             steps {
                 echo "Welcome to jenkins delerative pipline by aleem checking out git"
                 echo "${params.gittag}"
-                echo "${params.gitbranch}"
-                // echo "${params.tagref}"
                 
                 echo "refs/tags/${params.gittag}"
                 checkout ([
