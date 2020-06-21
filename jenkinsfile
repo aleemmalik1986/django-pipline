@@ -2,8 +2,7 @@ pipeline {
 
     agent any
     parameters {
-        // string(name: 'tagref', defaultValue: 'refs/tags/', description: 'store tag ref')
-        string(name: 'gittag', defaultValue: 'refs/tags/', description: 'store tag ref')
+        string(name: 'gittag', defaultValue: '1.0.1', description: 'enter branch tag to build')
     }
     stages {
         stage ("Git Checkoutt") {
@@ -18,14 +17,6 @@ pipeline {
                     extensions: [[$class: 'CloneOption', shallow: false, depth: 0, reference: '']],
                     userRemoteConfigs: scm.userRemoteConfigs,
                 ])
-
-                // checkout scm: [$class: 'GitSCM', userRemoteConfigs: [[url: 'git@github.com:aleemmalik1986/django-pipline.git', 
-                //     credentialsId: '608df181-d302-4e65-912d-b56b5df81655']], branches: [[name: ${params.gittag}]]],poll: false
-
-                // checkout([$class: 'GitSCM', branches: [[name: ${params.gittag}]],
-                //     userRemoteConfigs: [[url: 'git@github.com:aleemmalik1986/django-pipline.git',
-                //     credentialsId: '608df181-d302-4e65-912d-b56b5df81655']]
-                // ])
                 echo "Git checkout finished"
             }
             
