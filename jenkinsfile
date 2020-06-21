@@ -1,9 +1,17 @@
 pipeline {
 
+    environment {
+        pipelineName = env.JOB_BASE_NAME
+        jenkinsWorkspacePath = "/var/lib/jenkins/workspace/"
+    }
+
     agent any
+
     parameters {
         string(name: 'gittag', defaultValue: '1.0.1', description: 'enter branch tag to build')
     }
+
+
     stages {
         stage ("Git Checkoutt") {
             steps {
@@ -24,6 +32,7 @@ pipeline {
         stage ("build artifacts zipfile") {
             steps{
                 echo env.JOB_BASE_NAME
+                sh "echo $jenkinsWorkspacePath $pipelineName"
 
             }
         }
