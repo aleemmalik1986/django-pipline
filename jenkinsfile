@@ -6,6 +6,10 @@ pipeline {
                 echo "Welcome to jenkins delerative pipline by aleem checking out git"
                 echo "${params.gittag}"
                 echo "${params.gitbranch}"
+                checkout([$class: 'GitSCM', branches: [[name: ${params.gittag}]],
+                    userRemoteConfigs: [[url: 'git@github.com:aleemmalik1986/django-pipline.git',
+                    credentialsId: '608df181-d302-4e65-912d-b56b5df81655']]
+                ])
                 echo "Git checkout finished"
             }
             
