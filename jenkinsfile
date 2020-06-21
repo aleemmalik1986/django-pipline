@@ -34,6 +34,8 @@ pipeline {
             steps{
                 echo "${pipelineName}"
                 sh "echo $jenkinsWorkspacePath$pipelineName"
+                sh "cd $jenkinsWorkspacePath$pipelineName"
+                sh "pwd"
 
             }
         }
